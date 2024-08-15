@@ -139,5 +139,12 @@ tar xvzf dataset.tar.gz</code></pre>
     <li><a href="https://youtube.com/" target="_blank">Video Demonstration</a></li>
 </ul>
 
+<h2>Contact</h2>
+<p>For any questions or feedback, please reach out to <a href="mailto:ad@adamdalloul.com">ad@adamdalloul.com</a>.</p>
+
+<hr/>
+
+<p>Thank you for using ArtDetectiveAI!</p>
+
 </body>
 </html>
