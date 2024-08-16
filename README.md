@@ -29,8 +29,8 @@
 <p><b>The model was optimized for the highest accuracy as it was trained with googlenet, resnet-18 different epochs, etc. and it the highest accuracy model was found to be googlenet.</b></p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/37541274-02d1-41fe-a42f-6534dc3c8f29" alt="ai" width="280"/><br/>
-  <img src="https://github.com/user-attachments/assets/6b52e159-74ce-4838-a476-8dd563cc3dec" alt="non_ai" width="280"/>
+  <img src="https://github.com/user-attachments/assets/81cb3f63-68f2-4401-b1a1-8932a621e125" alt="non_ai_detection" width="280"/><br/>
+  <img src="https://github.com/user-attachments/assets/dab1511e-73d8-44ed-b51c-da50aa4d0d8a" alt="ai_detection" width="280"/>
 </p>
 
 
