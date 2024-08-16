@@ -46,30 +46,35 @@
 
 <h2>Script Explanation</h2>
 
-<p>Here’s a breakdown of the <code>classify_image.py</code> script:</p>
+<p>Here’s a breakdown of the <code>my-recognition.py</code> script:</p>
 
 <pre><code>
 #!/usr/bin/python3
-import jetson_inference
-import jetson_utils
+from jetson_inference import imageNet
+from jetson_utils import loadImage
 import argparse
-
-# Parse command-line arguments
+    
+# parse the command line
 parser = argparse.ArgumentParser()
-parser.add_argument("filename", type=str, help="Filename of the image to process")
-parser.add_argument("--network", type=str, default="googlenet", help="Model to use (e.g., googlenet, resnet-18)")
-opt = parser.parse_args()
+parser.add_argument("filename", type=str, help="filename of the image to process")
+parser.add_argument("--network", type=str, default="googlenet", help="model to use, can be:  googlenet, resnet-18, ect.")
+args = parser.parse_args()
 
-# Load image and network
-img = jetson_utils.loadImage(opt.filename)
-net = jetson_inference.imageNet(opt.network)
+# load an image (into shared CPU/GPU memory)
+img = loadImage(args.filename)
 
-# Classify the image
+# load the recognition network
+net = imageNet(model="../jetson-inference/python/training/classification/models/ai_art/googlenet.onnx",
+ labels="../jetson-inference/python/training/classification/models/ai_art/labels.txt", input_blob="input_0", output_blob="output_0")
+
+# classify the image
 class_idx, confidence = net.Classify(img)
+
+# find the object description
 class_desc = net.GetClassDesc(class_idx)
 
-# Print results
-print(f"Image is recognized as {class_desc} (class #{class_idx}) with {confidence*100:.2f}% confidence")
+# print out the result
+print("image is recognized as '{:s}' (class #{:d}) with {:f}% confidence".format(class_desc, class_idx, confidence * 100))
 </code></pre>
 
 <ol>
