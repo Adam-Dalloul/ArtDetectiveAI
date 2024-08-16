@@ -8,7 +8,7 @@ class ArtDetectiveApp:
     def __init__(self, root):
         self.root = root
         self.root.title("AI Image Classifier")
-        self.root.geometry("600x700")  
+        self.root.geometry("600x700")
         self.root.configure(bg="#f7f7f7")
 
         # Header Frame
@@ -89,7 +89,7 @@ class ArtDetectiveApp:
 
     def run_classification(self):
         if not (self.model_path and self.labels_path and self.image_path):
-            messagebox.showerror("Error", "Please complete all steps before classification.")
+            messagebox.showerror("Error", "Please complete all steps.")
             return
 
         result = self.classify_image(self.model_path, self.labels_path, self.image_path)
@@ -99,29 +99,36 @@ class ArtDetectiveApp:
         try:
             # Load the ONNX model
             session = ort.InferenceSession(model_path)
+
+            # Load and preprocess image using Pillow
+            img = Image.open(image_path).resize((224, 224))  # Resize image to model input size
+            img = np.array(img).astype('float32') / 255.0  # Convert image to float32 and normalize to range [0, 1]
             
-            # Load image using Pillow
-            img = Image.open(image_path).resize((224, 224))  # Adjust size as per model input
-            img = np.array(img).astype('float32') / 255.0  # Normalize to 0-1 range
-            img = np.transpose(img, (2, 0, 1))  # Change to CHW format (channels, height, width)
-            img = np.expand_dims(img, axis=0)  # Add batch dimension
+            # Normalize as per Imagenet standards (if needed)
+            mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
+            std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
+            img = (img - mean) / std
+
+            img = np.transpose(img, (2, 0, 1))  # Convert image to CHW format (channels, height, width)
+            img = np.expand_dims(img, axis=0).astype(np.float32)  # Add batch dimension and ensure float32 type
 
             # Run model inference
             input_blob = session.get_inputs()[0].name
             output_blob = session.get_outputs()[0].name
             result = session.run([output_blob], {input_blob: img})[0]
-            
-            # Get label
-            class_idx = np.argmax(result)
-            
+
+            # Get top prediction
+            top_index = np.argmax(result[0])
+
             # Load labels from labels.txt
             with open(labels_path, 'r') as f:
                 labels = [line.strip() for line in f.readlines()]
-            
-            class_desc = labels[class_idx]
-            confidence = result[0][class_idx]
-            
-            return f"Image classified as '{class_desc}' with {confidence*100:.2f}% confidence."
+
+            class_desc = labels[top_index]
+            confidence = result[0][top_index] * 100
+
+            # Return the top prediction with confidence
+            return f"Prediction: {class_desc}, Confidence: {confidence:.2f}%"
         
         except Exception as e:
             return str(e)
