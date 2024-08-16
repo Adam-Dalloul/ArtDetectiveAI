@@ -108,17 +108,32 @@ tar xvzf dataset.tar.gz</code></pre>
 </ol>
 
 <h2>Running the Trained Model</h2>
-
-<p>To use your trained model for classification:</p>
-
+<p>You can run your trained model using either of the following two options: <code>imagenet.py</code> for image output or <code>my-recognition.py</code> for text output.</p>
+<h3>Option 1: Using <code>imagenet.py</code> for Image Output</h3>
+<p>This option allows you to generate an output image with the predicted label and confidence overlaid on it:</p>
 <ol>
     <li><b>Set Up</b>:
-        <pre><code>Ensure the model file is in the correct directory.</code></pre>
+        <pre><code>Ensure the model file (<code>.onnx</code>) and the labels file (<code>.txt</code>) are in the correct directory.</code></pre>
     </li>
-    <li><b>Run Classification</b>:
-        <pre><code>imagenet.py --model=models/my_model/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg</code></pre>
+    <li><b>Run Classification with Image Output</b>:
+        <pre><code>python imagenet.py --model=models/my_model/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg</code></pre>
+    </li>
+    <li>The output image will be generated with the predicted label and confidence score overlaid on it.</li>
+</ol>
+<h3>Option 2: Using <code>my-recognition.py</code> for Text Output</h3>
+<p>This option provides a simplified approach where the prediction and confidence score are displayed as text in the terminal:</p>
+<ol>
+    <li><b>Set Up</b>:
+        <pre><code>Ensure the model file (<code>.onnx</code>) and the labels file (<code>.txt</code>) are in the correct directory.</code></pre>
+    </li>
+    <li><b>Run Classification with Text Output</b>:
+        <pre><code>python my-recognition.py path/to/image.jpg --network=models/my_model/googlenet.onnx</code></pre>
+    </li>
+    <li>The top prediction and confidence score will be printed to the terminal:
+        <pre><code>image is recognized as '{class_desc}' (class #{class_idx}) with {confidence}% confidence</code></pre>
     </li>
 </ol>
+
 
 <h2>Run Local App for Detection (easy)</h2>
 
