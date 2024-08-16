@@ -44,13 +44,13 @@
 
 <ol>
     <li><b>Clone the Repository</b>:
-        <pre><code>git clone https://github.com/YourUsername/ArtDetectiveAI</code></pre>
+        <pre><code>git clone https://github.com/Adam-Dalloul/ArtDetectiveAI</code></pre>
     </li>
     <li><b>Navigate to the Project Directory</b>:
         <pre><code>cd ArtDetectiveAI</code></pre>
     </li>
     <li><b>Run the Classification Script</b>:
-        <pre><code>python3 classify_image.py path/to/image.jpg</code></pre>
+        <pre><code>python3 imagenet.py path/to/image.jpg</code></pre>
     </li>
 </ol>
 
