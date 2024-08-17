@@ -105,6 +105,14 @@ tar xvzf dataset.tar.gz</code></pre>
     </li>
 </ol>
 
+<h2>Run Local App for Detection (easy)</h2>
+
+<ol>
+    <li>Download the exe. file <a href="https://github.com/Adam-Dalloul/ArtDetectiveAI/raw/main/Desktop_App/AI%20Image%20Classifier.exe?download=" target="_blank">here</a> and run it.</li>
+    <li>Find and select the .onnx model to be used and the labels.txt file to be used.</li>
+    <li>Upload an image to the app, it will process it and tell you the output of its detection and the accuracy.</li>
+</ol>
+
 <h2>Running the Trained Model</h2>
 <p>You can run your trained model using either of the following two options: <code>imagenet.py</code> for image output or <code>my-recognition.py</code> for text output.</p>
 
@@ -140,13 +148,7 @@ tar xvzf dataset.tar.gz</code></pre>
     </li>
 </ol>
 
-<h2>Run Local App for Detection (easy)</h2>
 
-<ol>
-    <li>Download the exe. file <a href="https://github.com/Adam-Dalloul/ArtDetectiveAI/raw/main/Desktop_App/AI%20Image%20Classifier.exe?download=" target="_blank">here</a> and run it.</li>
-    <li>Find and select the .onnx model to be used and the labels.txt file to be used.</li>
-    <li>Upload an image to the app, it will process it and tell you the output of its detection and the accuracy.</li>
-</ol>
 
 <h2>Resources</h2>
 
