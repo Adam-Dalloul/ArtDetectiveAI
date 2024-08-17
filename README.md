@@ -33,8 +33,6 @@
   <img src="https://github.com/user-attachments/assets/dab1511e-73d8-44ed-b51c-da50aa4d0d8a" alt="ai_detection" width="280"/>
 </p>
 
-
-
 <h2>How It Works</h2>
 
 <p><b>ArtDetectiveAI</b> uses a neural network to classify images. The process involves:</p>
@@ -109,52 +107,54 @@ tar xvzf dataset.tar.gz</code></pre>
 
 <h2>Running the Trained Model</h2>
 <p>You can run your trained model using either of the following two options: <code>imagenet.py</code> for image output or <code>my-recognition.py</code> for text output.</p>
+
 <h3>Option 1: Using <code>imagenet.py</code> for Image Output</h3>
 <p>This option allows you to generate an output image with the predicted label and confidence overlaid on it:</p>
+
 <ol>
     <li><b>Set Up</b>:
         <pre><code>Ensure the model file (<code>.onnx</code>) and the labels file (<code>.txt</code>) are in the correct directory.</code></pre>
     </li>
     <li><b>Run Classification with Image Output</b>:
         <pre><code>python imagenet.py --model=models/my_model/googlenet.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg image_output_name.jpg</code></pre>
+        <p><i>Example:</i></p>
+        <pre><code>python imagenet.py --model=models/my_model/googlenet.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt non_ai.jpg output.jpg</code></pre>
     </li>
     <li>The output image will be generated with the predicted label and confidence score overlaid on it.</li>
 </ol>
+
 <h3>Option 2: Using <code>my-recognition.py</code> for Text Output</h3>
 <p>This option provides a simplified approach where the prediction and confidence score are displayed as text in the terminal:</p>
+
 <ol>
     <li><b>Set Up</b>:
         <pre><code>Ensure the model file (<code>.onnx</code>) and the labels file (<code>.txt</code>) are in the correct directory.</code></pre>
     </li>
     <li><b>Run Classification with Text Output</b>:
         <pre><code>python my-recognition.py path/to/image.jpg --network=models/my_model/googlenet.onnx</code></pre>
+        <p><i>Example:</i></p>
+        <pre><code>python my-recognition.py non_ai.jpg --network=models/my_model/googlenet.onnx</code></pre>
     </li>
     <li>The top prediction and confidence score will be printed to the terminal:
         <pre><code>image is recognized as '{class_desc}' (class #{class_idx}) with {confidence}% confidence</code></pre>
     </li>
 </ol>
 
-
 <h2>Run Local App for Detection (easy)</h2>
 
-1. Download the exe. file <a href="https://github.com/Adam-Dalloul/ArtDetectiveAI/raw/main/Desktop_App/AI%20Image%20Classifier.exe?download=" target="_blank">here</a> and run it.
-2. Find and select the .onnx model to be used and the labels.txt file to be used.
-3. Upload an image to the app, it will proccess it and tell you the output of its detection and the accuracy.
+<ol>
+    <li>Download the exe. file <a href="https://github.com/Adam-Dalloul/ArtDetectiveAI/raw/main/Desktop_App/AI%20Image%20Classifier.exe?download=" target="_blank">here</a> and run it.</li>
+    <li>Find and select the .onnx model to be used and the labels.txt file to be used.</li>
+    <li>Upload an image to the app, it will process it and tell you the output of its detection and the accuracy.</li>
+</ol>
 
 <h2>Resources</h2>
 
 <ul>
-    <li><a href="https://www.kaggle.com/datasets/kausthubkannan/ai-and-human-art-classification" target="_blank">Dataset</a></li>
-    <li><a href="https://github.com/dusty-nv/jetson-inference" target="_blank">Jetson Inference Documentation</a></li>
-    <li><a href="https://youtube.com/" target="_blank">Video Demonstration</a></li>
+    <li><a href="https://www.kaggle.com/datasets/kausthubkannan/ai-and-human-art-classification">Dataset</a></li>
+    <li><a href="https://github.com/dusty-nv/jetson-inference">Jetson-Inference GitHub</a></li>
+    <li><a href="https://github.com/onnx/onnx">ONNX GitHub</a></li>
 </ul>
-
-<h2>Contact</h2>
-<p>For any questions or feedback, please reach out to <a href="mailto:ad@adamdalloul.com">ad@adamdalloul.com</a>.</p>
-
-<hr/>
-
-<p>Thank you for using ArtDetectiveAI!</p>
 
 </body>
 </html>
