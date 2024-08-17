@@ -40,7 +40,7 @@
 <p><b>ArtDetectiveAI</b> uses a neural network to classify images. The process involves:</p>
 <ol>
     <li><b>Input Image</b>: Upload an image file for classification.</li>
-    <li><b>Processing</b>: The image is processed using a pre-trained model (ResNet-18).</li>
+    <li><b>Processing</b>: The image is processed using a pre-trained model (googlenet).</li>
     <li><b>Classification</b>: The model predicts the category of the image and provides a confidence score.</li>
 </ol>
 
@@ -103,7 +103,7 @@ tar xvzf dataset.tar.gz</code></pre>
         <pre><code>python3 onnx_export.py --model-dir=models/my_model</code></pre>
     </li>
     <li><b>Verify Model</b>:
-        <pre><code>Ensure the exported model (resnet18.onnx) is in the models/my_model directory.</code></pre>
+        <pre><code>Ensure the exported model (googlenet.onnx) is in the models/my_model directory.</code></pre>
     </li>
 </ol>
 
@@ -116,7 +116,7 @@ tar xvzf dataset.tar.gz</code></pre>
         <pre><code>Ensure the model file (<code>.onnx</code>) and the labels file (<code>.txt</code>) are in the correct directory.</code></pre>
     </li>
     <li><b>Run Classification with Image Output</b>:
-        <pre><code>python imagenet.py --model=models/my_model/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg</code></pre>
+        <pre><code>python imagenet.py --model=models/my_model/googlenet.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg</code></pre>
     </li>
     <li>The output image will be generated with the predicted label and confidence score overlaid on it.</li>
 </ol>
