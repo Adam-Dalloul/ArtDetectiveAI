@@ -155,7 +155,7 @@ tar xvzf dataset.tar.gz</code></pre>
 <ul>
     <li><a href="https://www.kaggle.com/datasets/kausthubkannan/ai-and-human-art-classification">Dataset</a></li>
     <li><a href="https://github.com/dusty-nv/jetson-inference">Jetson-Inference GitHub</a></li>
-    <li><a href="https://github.com/onnx/onnx">ONNX GitHub</a></li>
+    <li><a href="https://youtu.be/HcrKtYPj0do?si=lFPQY0oIRsTOBtGc">Youtube Video Demonstration</a></li>
 </ul>
 
 </body>
