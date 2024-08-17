@@ -108,7 +108,7 @@ tar xvzf dataset.tar.gz</code></pre>
 <h2>Run Local App for Detection (easy)</h2>
 
 <ol>
-    <li>Download the exe. file <a href="https://github.com/Adam-Dalloul/ArtDetectiveAI/raw/main/Desktop_App/AI%20Image%20Classifier.exe?download=" target="_blank">here</a> and run it.</li>
+    <li>Download the exe. file <a href="https://github.com/Adam-Dalloul/ArtDetectiveAI/raw/main/Desktop_App/app.exe?download=" target="_blank">here</a> and run it.</li>
     <li>Find and select the .onnx model to be used and the labels.txt file to be used.</li>
     <li>Upload an image to the app, it will process it and tell you the output of its detection and the accuracy.</li>
 </ol>
