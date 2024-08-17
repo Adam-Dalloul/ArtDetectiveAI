@@ -116,7 +116,7 @@ tar xvzf dataset.tar.gz</code></pre>
         <pre><code>Ensure the model file (<code>.onnx</code>) and the labels file (<code>.txt</code>) are in the correct directory.</code></pre>
     </li>
     <li><b>Run Classification with Image Output</b>:
-        <pre><code>python imagenet.py --model=models/my_model/googlenet.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg</code></pre>
+        <pre><code>python imagenet.py --model=models/my_model/googlenet.onnx --input_blob=input_0 --output_blob=output_0 --labels=data/my_dataset/labels.txt path/to/image.jpg image_output_name.jpg</code></pre>
     </li>
     <li>The output image will be generated with the predicted label and confidence score overlaid on it.</li>
 </ol>
